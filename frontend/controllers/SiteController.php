@@ -12,6 +12,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use common\models\Countries;
 
 /**
  * Site controller
@@ -73,6 +74,19 @@ class SiteController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
+    }
+
+    /**
+     * Displays homepage.
+     *
+     * @return mixed
+     */
+    public function actionTest()
+    {
+        $model = new Countries();
+        return $this->render('test', [
+                'model' => $model->find()->all(),
+            ]);
     }
 
     /**
